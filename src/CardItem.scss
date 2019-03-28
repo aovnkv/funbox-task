@@ -1,0 +1,58 @@
+.CardItem {
+  position: relative;
+}
+.Card {
+  position: relative;
+  width: 320px;
+  height: 480px;
+}
+.Card:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  border-bottom: 43px solid #f2f2f2;
+  border-left: 43px solid transparent;
+}
+.CardHeader {
+  position: relative;
+  background: #f2f2f2;
+  border-top: 4px solid #1698d9;
+  border-right: 4px solid #1698d9;
+  border-top-right-radius: 12px;
+  margin-left: 41px;
+  height: 37px;
+  &-title {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.1875;
+    padding: 17px 0 5px;
+  }
+}
+.CardHeader:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 57.98px;
+  border-left: 4px solid #1698d9;
+  transform: translate(-21.25px, -11px) rotate(45deg);
+  z-index: 1;
+}
+.CardInner {
+  position: relative;
+  background: #f2f2f2;
+  border-left: 4px solid #1698d9;
+  border-right: 4px solid #1698d9;
+  border-bottom: 4px solid #1698d9;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  height: calc(100% - 57px);
+  &-title {
+    margin: 0;
+  }
+  &-subtitle {
+    margin: 0;
+  }
+}

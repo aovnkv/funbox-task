@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  background-image: url(img/pattern.png);
+  background-repeat: repeat;
+  background-position: 0% 0%;
+  background-size: 7.5%;
+}
+.AppContainer {
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.4) 10%,
+    rgba(0, 0, 0, 0.2) 25%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.2) 75%,
+    rgba(0, 0, 0, 0.4) 90%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
