@@ -17,11 +17,14 @@ export default class CardItem extends Component {
             <h1 className="CardInner-title">Нямушка</h1>
             <h2 className="CardInner-subtitle">с фуа-гра</h2>
             <div className="CardInner-weight">
-              0,5<span>кг</span>
+              <div className="CardInner-weight-val">0,5</div>
+              <div className="CardInner-weight-metrics">кг</div>
             </div>
           </div>
         </div>
-        <p className="BuyIt" />
+        <p className="BuyIt">
+          Чего сидишь? Порадуй котэ, <span>купи</span>.
+        </p>
       </div>
     );
   }
