@@ -1,3 +1,25 @@
+a {
+  text-decoration: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Exo 2.0 Thin';
+  src: url('fonts/Exo20-Thin.eot');
+  src: url('fonts/Exo20-Thin.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Exo20-Thin.woff') format('woff'),
+    url('fonts/Exo20-Thin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 .App {
   text-align: center;
   height: 100vh;
@@ -23,4 +45,9 @@
     rgba(0, 0, 0, 0.4) 90%,
     rgba(0, 0, 0, 0.5) 100%
   );
+}
+.AppTitle {
+  font-family: 'Exo 2.0 Thin', 'Helvetica', sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.2;
 }

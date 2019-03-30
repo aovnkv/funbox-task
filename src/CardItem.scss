@@ -1,4 +1,4 @@
-$blue: #1698d9;
+$default: #1698d9;
 
 .CardItem {
   position: relative;
@@ -22,13 +22,12 @@ $blue: #1698d9;
   position: relative;
   height: 41px;
   background: #f2f2f2;
-  border-top: 4px solid $blue;
-  border-right: 4px solid $blue;
+  border-top: 4px solid $default;
+  border-right: 4px solid $default;
   border-top-right-radius: 12px;
   margin-left: 41px;
   text-align: left;
   &-title {
-    margin: 0;
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.1875;
@@ -43,7 +42,7 @@ $blue: #1698d9;
   left: 0;
   width: 0;
   height: 57.98px;
-  border-left: 4px solid $blue;
+  border-left: 4px solid $default;
   transform: translate(-21px, -11px) rotate(45deg);
   z-index: 1;
 }
@@ -51,20 +50,18 @@ $blue: #1698d9;
   position: relative;
   background: url('img/cat_photo.png') no-repeat -24px 208px/100%, #f2f2f2;
   height: calc(100% - 41px);
-  border-left: 4px solid $blue;
-  border-right: 4px solid $blue;
-  border-bottom: 4px solid $blue;
+  border-left: 4px solid $default;
+  border-right: 4px solid $default;
+  border-bottom: 4px solid $default;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   &-title {
-    margin: 0;
     padding-left: 44px;
     font-size: 3rem;
     line-height: 1.167;
     text-align: left;
   }
   &-subtitle {
-    margin: 0;
     padding-left: 47px;
     font-size: 1.5rem;
     line-height: 1.167;
@@ -100,9 +97,8 @@ $blue: #1698d9;
   line-height: 1.15;
   color: #fff;
   padding-top: 14px;
-  margin: 0;
   span {
-    color: $blue;
-    border-bottom: 1px dashed $blue;
+    color: $default;
+    border-bottom: 1px dashed $default;
   }
 }

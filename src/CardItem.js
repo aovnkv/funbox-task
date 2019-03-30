@@ -23,7 +23,11 @@ export default class CardItem extends Component {
           </div>
         </div>
         <p className="BuyIt">
-          Чего сидишь? Порадуй котэ, <span>купи</span>.
+          Чего сидишь? Порадуй котэ,{' '}
+          <a href="/">
+            <span>купи</span>
+          </a>
+          .
         </p>
       </div>
     );
