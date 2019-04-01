@@ -41,13 +41,20 @@ class CardItem extends Component {
     }));
   };
 
-  handleMouseOver = () => {
+  handleMouseOver = e => {
+    e.stopPropagation();
     if (!this.state.hoverFreeze) this.setState({ hovered: true });
   };
 
   handleMouseOut = () => {
     this.setState({ hovered: false, hoverFreeze: false });
   };
+
+  // stopPropagation = e => {
+  //   e.stopPropagation();
+  //   this.handleMouseOver();
+  //   console.log(e.target);
+  // };
 
   render() {
     const {
@@ -84,7 +91,7 @@ class CardItem extends Component {
         <div
           className={hovered ? 'Card hovered' : 'Card'}
           onClick={this.handleClick}
-          onMouseOver={this.handleMouseOver}
+          onMouseOverCapture={this.handleMouseOver}
           onMouseOut={this.handleMouseOut}
         >
           <div className="CardHeader">
