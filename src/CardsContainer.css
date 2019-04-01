@@ -2,6 +2,20 @@
   position: relative;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .CardsContainer {
+    max-width: 959px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .CardsContainer {
+    max-width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
 }

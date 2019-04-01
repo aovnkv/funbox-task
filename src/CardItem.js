@@ -1,35 +1,110 @@
 import React, { Component } from 'react';
 import './CardItem.scss';
 
-export default class CardItem extends Component {
+const OptionItem = ({ optStr, digit }) =>
+  digit ? (
+    <p>
+      <strong>{digit[0]}</strong>
+      {optStr}
+    </p>
+  ) : (
+    <p>{optStr}</p>
+  );
+
+const CardDescription = ({
+  selected,
+  available,
+  taste,
+  description,
+  handleClick
+}) =>
+  available ? (
+    selected ? (
+      <p>{description}</p>
+    ) : (
+      <p>
+        Чего сидишь? Порадуй котэ, <span onClick={handleClick}>купи</span>.
+      </p>
+    )
+  ) : (
+    <p>Печалька, {taste} закончился.</p>
+  );
+
+class CardItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: false, disabled: false };
+    this.state = { selected: false, hovered: false };
   }
+  handleClick = () => {
+    this.setState(prevState => ({
+      selected: !prevState.selected
+    }));
+  };
   render() {
+    const {
+      topTitle,
+      mTitle,
+      taste,
+      options,
+      weight,
+      description,
+      available
+    } = this.props;
+    const { selected, hovered } = this.state;
+
+    const opts = options.map((opt, index) => {
+      let digit;
+      const regex = /\d+/;
+      if (regex.test(opt)) {
+        digit = opt.match(regex);
+        opt = opt.replace(regex, '');
+      }
+      return <OptionItem key={index} optStr={opt} digit={digit} />;
+    });
+
     return (
-      <div className="CardItem">
-        <div className="Card">
+      <div
+        className={
+          selected
+            ? 'CardItem selected'
+            : !available
+            ? 'CardItem disabled'
+            : 'CardItem'
+        }
+      >
+        <div
+          className={hovered ? 'Card hovered' : 'Card'}
+          onClick={this.handleClick}
+          onMouseOver={() => this.setState({ hovered: true })}
+          onMouseOut={() => this.setState({ hovered: false })}
+        >
           <div className="CardHeader">
-            <h3 className="CardHeader-title">Сказочное заморское яство</h3>
+            <h3 className="CardHeader--title">
+              {selected && hovered ? 'Котэ не одобряет?' : topTitle}
+            </h3>
           </div>
           <div className="CardInner">
-            <h1 className="CardInner-title">Нямушка</h1>
-            <h2 className="CardInner-subtitle">с фуа-гра</h2>
-            <div className="CardInner-weight">
-              <div className="CardInner-weight-val">0,5</div>
-              <div className="CardInner-weight-metrics">кг</div>
+            <h1 className="CardInner--title">{mTitle}</h1>
+            <h2 className="CardInner--subtitle">{taste}</h2>
+            <ul className="CardInner--options">{opts}</ul>
+            <div className="CardInner--weight">
+              <div className="CardInner--weight-val">{weight}</div>
+              <div className="CardInner--weight-metrics">кг</div>
             </div>
           </div>
         </div>
-        <p className="BuyIt">
-          Чего сидишь? Порадуй котэ,{' '}
-          <a href="/">
-            <span>купи</span>
-          </a>
-          .
-        </p>
+        <div className="CardDescription">
+          <CardDescription
+            selected={selected}
+            available={available}
+            description={description}
+            taste={taste}
+            handleClick={this.handleClick}
+          />
+        </div>
       </div>
     );
   }
 }
+
+export default CardItem;

@@ -1,104 +1,219 @@
 $default: #1698d9;
+$defaultHover: #2ea8e6;
+$selected: #d91667;
+$selectedHover: #e52e7a;
+$disabled: #b3b3b3;
+$disabledText: rgba(179, 179, 179, 0.5);
 
 .CardItem {
   position: relative;
   font-family: 'Trebuchet MS', Arial, sans-serif;
   color: #000;
-}
-.Card {
-  position: relative;
-  width: 320px;
-  height: 480px;
-}
-.Card:before {
-  position: absolute;
-  content: '';
-  left: 0;
-  top: 0;
-  border-bottom: 43px solid #f2f2f2;
-  border-left: 43px solid transparent;
-}
-.CardHeader {
-  position: relative;
-  height: 41px;
-  background: #f2f2f2;
-  border-top: 4px solid $default;
-  border-right: 4px solid $default;
-  border-top-right-radius: 12px;
-  margin-left: 41px;
-  text-align: left;
-  &-title {
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.1875;
-    padding: 17px 0 4px 10px;
-    color: #666;
-  }
-}
-.CardHeader:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 57.98px;
-  border-left: 4px solid $default;
-  transform: translate(-21px, -11px) rotate(45deg);
-  z-index: 1;
-}
-.CardInner {
-  position: relative;
-  background: url('img/cat_photo.png') no-repeat -24px 208px/100%, #f2f2f2;
-  height: calc(100% - 41px);
-  border-left: 4px solid $default;
-  border-right: 4px solid $default;
-  border-bottom: 4px solid $default;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  &-title {
-    padding-left: 44px;
-    font-size: 3rem;
-    line-height: 1.167;
-    text-align: left;
-  }
-  &-subtitle {
-    padding-left: 47px;
-    font-size: 1.5rem;
-    line-height: 1.167;
-    text-align: left;
-  }
-  &-weight {
-    position: absolute;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    right: 12px;
-    bottom: 12px;
-    width: 81px;
-    height: 81px;
-    border-radius: 50%;
-    background: darkgray;
-    color: #fff;
-    &-val {
-      font-size: 2.625rem;
-      line-height: 1;
-      padding-top: 5px;
-    }
-    &-metrics {
-      font-size: 1.25rem;
-      line-height: 1;
-    }
-  }
-}
+  margin-bottom: 1.5rem;
 
-.BuyIt {
-  font-size: 0.8125rem;
-  line-height: 1.15;
-  color: #fff;
-  padding-top: 14px;
-  span {
-    color: $default;
-    border-bottom: 1px dashed $default;
+  .Card {
+    position: relative;
+    width: 320px;
+    height: 480px;
+    cursor: pointer;
+    &:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      border-bottom: 43px solid #f2f2f2;
+      border-left: 43px solid transparent;
+    }
+    &.hovered {
+      .CardHeader {
+        border-color: $defaultHover;
+        &:before {
+          border-color: $defaultHover;
+        }
+      }
+      .CardInner {
+        border-color: $defaultHover;
+        &--weight {
+          background: $defaultHover;
+        }
+      }
+    }
+  }
+
+  .CardHeader {
+    position: relative;
+    height: 41px;
+    background: #f2f2f2;
+    border-top: 4px solid $default;
+    border-right: 4px solid $default;
+    border-top-right-radius: 12px;
+    margin-left: 41px;
+    text-align: left;
+    &--title {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.1875;
+      padding: 17px 0 4px 10px;
+      color: #666;
+    }
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 57.98px;
+      border-left: 4px solid $default;
+      transform: translate(-21px, -11px) rotate(45deg);
+      z-index: 1;
+    }
+  }
+
+  .CardInner {
+    position: relative;
+    height: calc(100% - 41px);
+    background: #f2f2f2;
+    overflow: hidden;
+    border-left: 4px solid $default;
+    border-right: 4px solid $default;
+    border-bottom: 4px solid $default;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    &::before {
+      position: absolute;
+      left: -24px;
+      top: 208px - 41px;
+      width: 368px;
+      height: 360px;
+      content: '';
+      background-image: url('img/cat_photo.png');
+      background-repeat: no-repeat;
+    }
+    &--title {
+      padding-left: 44px;
+      font-size: 3rem;
+      line-height: 1.167;
+      text-align: left;
+    }
+    &--subtitle {
+      padding-left: 47px;
+      font-size: 1.5rem;
+      line-height: 1.167;
+      text-align: left;
+    }
+    &--options {
+      padding-left: 47px;
+      font-size: 0.875rem;
+      line-height: 1.143;
+      color: #666;
+      text-align: left;
+      &--amount {
+        font-weight: bold;
+      }
+    }
+    &--weight {
+      position: absolute;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      right: 12px;
+      bottom: 12px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: $default;
+      color: #fff;
+      &-val {
+        font-size: 2.625rem;
+        line-height: 1;
+        padding-top: 2px;
+      }
+      &-metrics {
+        font-size: 1.25rem;
+        line-height: 1;
+      }
+    }
+  }
+
+  &.selected {
+    .Card {
+      &.hovered {
+        .CardHeader {
+          border-color: $selectedHover;
+          &::before {
+            border-color: $selectedHover;
+          }
+          &--title {
+            color: $selectedHover;
+          }
+        }
+        .CardInner {
+          border-color: $selectedHover;
+          &--weight {
+            background: $selectedHover;
+          }
+        }
+      }
+    }
+    .CardHeader {
+      border-color: $selected;
+      &::before {
+        border-color: $selected;
+      }
+    }
+    .CardInner {
+      border-color: $selected;
+      &--weight {
+        background: $selected;
+      }
+    }
+  }
+
+  &.disabled {
+    color: $disabledText;
+    pointer-events: none;
+    .Card {
+      cursor: default;
+    }
+    .CardHeader {
+      border-color: $disabled;
+      &:before {
+        border-color: $disabled;
+      }
+      &--title {
+        color: $disabledText;
+      }
+    }
+    .CardInner {
+      border-color: $disabled;
+      &::before {
+        opacity: 0.5;
+      }
+      &--options {
+        color: $disabledText;
+      }
+      &--weight {
+        background: $disabled;
+      }
+    }
+    .CardDescription {
+      color: #ffff66;
+    }
+  }
+
+  .CardDescription {
+    font-size: 0.8125rem;
+    line-height: 1.16;
+    color: #fff;
+    padding-top: 14px;
+    span {
+      color: $default;
+      border-bottom: 1px dashed $default;
+      &:hover {
+        cursor: pointer;
+        border-bottom: none;
+      }
+    }
   }
 }
