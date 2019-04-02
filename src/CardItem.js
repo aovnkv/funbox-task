@@ -1,36 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './CardItem.scss';
 
-const OptionItem = ({ optStr, digit }) =>
-  digit ? (
-    <p>
-      <strong>{digit[0]}</strong>
-      {optStr}
-    </p>
-  ) : (
-    <p>{optStr}</p>
-  );
-
-const CardDescription = ({
-  selected,
-  available,
-  taste,
-  description,
-  handleClick
-}) =>
-  available ? (
-    selected ? (
-      <p>{description}</p>
-    ) : (
-      <p>
-        Чего сидишь? Порадуй котэ, <span onClick={handleClick}>купи</span>.
-      </p>
-    )
-  ) : (
-    <p>Печалька, {taste} закончился.</p>
-  );
-
-class CardItem extends Component {
+export default class CardItem extends Component {
   state = { selected: false, hoverOff: false, hovered: false };
 
   handleClick = () => {
@@ -116,4 +88,52 @@ class CardItem extends Component {
   }
 }
 
-export default CardItem;
+const OptionItem = ({ optStr, digit }) =>
+  digit ? (
+    <p>
+      <strong>{digit[0]}</strong>
+      {optStr}
+    </p>
+  ) : (
+    <p>{optStr}</p>
+  );
+
+const CardDescription = ({
+  selected,
+  available,
+  taste,
+  description,
+  handleClick
+}) =>
+  available ? (
+    selected ? (
+      <p>{description}</p>
+    ) : (
+      <p>
+        Чего сидишь? Порадуй котэ, <span onClick={handleClick}>купи</span>.
+      </p>
+    )
+  ) : (
+    <p>Печалька, {taste} закончился.</p>
+  );
+
+CardItem.propTypes = {
+  topTitle: PropTypes.string,
+  mTitle: PropTypes.string,
+  taste: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.string),
+  weight: PropTypes.number,
+  description: PropTypes.string,
+  available: PropTypes.bool
+};
+
+OptionItem.propTypes = {
+  optStr: PropTypes.string,
+  digit: PropTypes.number
+};
+
+CardDescription.propTypes = {
+  selected: PropTypes.bool,
+  available: PropTypes.bool,
+  handleClick: PropTypes.func
+};
