@@ -31,30 +31,23 @@ const CardDescription = ({
   );
 
 class CardItem extends Component {
-  state = { selected: false, hoverFreeze: false, hovered: false };
+  state = { selected: false, hoverOff: false, hovered: false };
 
   handleClick = () => {
     this.setState(prevState => ({
       selected: !prevState.selected,
       hovered: false,
-      hoverFreeze: true
+      hoverOff: true
     }));
   };
 
-  handleMouseOver = e => {
-    e.stopPropagation();
-    if (!this.state.hoverFreeze) this.setState({ hovered: true });
+  handleMouseEnter = () => {
+    if (!this.state.hoverOff) this.setState({ hovered: true });
   };
 
-  handleMouseOut = () => {
-    this.setState({ hovered: false, hoverFreeze: false });
+  handleMouseLeave = () => {
+    this.setState({ hovered: false, hoverOff: false });
   };
-
-  // stopPropagation = e => {
-  //   e.stopPropagation();
-  //   this.handleMouseOver();
-  //   console.log(e.target);
-  // };
 
   render() {
     const {
@@ -91,8 +84,8 @@ class CardItem extends Component {
         <div
           className={hovered ? 'Card hovered' : 'Card'}
           onClick={this.handleClick}
-          onMouseOverCapture={this.handleMouseOver}
-          onMouseOut={this.handleMouseOut}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
         >
           <div className="CardHeader">
             <h3 className="CardHeader--title">
