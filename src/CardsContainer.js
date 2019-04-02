@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './CardsContainer.css';
 import CardItem from './CardItem';
 
@@ -35,9 +35,9 @@ const cardItems = [
   }
 ];
 
-export default class CardsContainer extends Component {
-  render() {
-    const items = cardItems.map(item => <CardItem key={item.id} {...item} />);
-    return <div className="CardsContainer">{items}</div>;
-  }
-}
+const CardsContainer = () => {
+  const items = cardItems.map(item => <CardItem key={item.id} {...item} />);
+  return <div className="CardsContainer">{items}</div>;
+};
+
+export default CardsContainer;
