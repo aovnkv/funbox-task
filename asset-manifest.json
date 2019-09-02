@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/funbox-task/static/css/main.d0272d52.chunk.css",
+    "main.js": "/funbox-task/static/js/main.da41a276.chunk.js",
+    "main.js.map": "/funbox-task/static/js/main.da41a276.chunk.js.map",
+    "runtime~main.js": "/funbox-task/static/js/runtime~main.1088f635.js",
+    "runtime~main.js.map": "/funbox-task/static/js/runtime~main.1088f635.js.map",
+    "static/css/2.0971e70a.chunk.css": "/funbox-task/static/css/2.0971e70a.chunk.css",
+    "static/js/2.62283e0f.chunk.js": "/funbox-task/static/js/2.62283e0f.chunk.js",
+    "static/js/2.62283e0f.chunk.js.map": "/funbox-task/static/js/2.62283e0f.chunk.js.map",
+    "index.html": "/funbox-task/index.html",
+    "precache-manifest.c0e1ae1d401e3763618f8ce5e26f8e68.js": "/funbox-task/precache-manifest.c0e1ae1d401e3763618f8ce5e26f8e68.js",
+    "service-worker.js": "/funbox-task/service-worker.js",
+    "static/css/2.0971e70a.chunk.css.map": "/funbox-task/static/css/2.0971e70a.chunk.css.map",
+    "static/css/main.d0272d52.chunk.css.map": "/funbox-task/static/css/main.d0272d52.chunk.css.map",
+    "static/media/App.css": "/funbox-task/static/media/Exo20-Thin.b8fd437d.ttf",
+    "static/media/CardItem.scss": "/funbox-task/static/media/cat_photo.66b5cf20.png"
+  }
+}
